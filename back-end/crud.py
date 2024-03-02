@@ -17,7 +17,7 @@ def get_user_by_name(db: Session, name: str):
 
 def create_user(db: Session, user: UserData):
     fake_password = user.password + '#fake'
-    new_user = User(name=user.name, password=fake_password)
+    new_user = User(name=user.name, email=user.email, password=fake_password)
     db.add(new_user)
     db.commit()
     db.flush(new_user)
